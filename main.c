@@ -7,10 +7,10 @@ struct Book{
 	char title[10];
 	
 };
-int main(int argc, char *argv[]) {
+int main(void) { 
 	struct Book **bookshelf;
 	int i;
-	bookshelf= (struct Book**)malloc(3*sizeof(struct Book*));
+	bookshelf= (struct Book**)malloc(sizeof(struct Book*));
 	//initial bookshelf (3 boxes for Book*)
 	for(i=0;i<3;i++){
 		bookshelf[i]=(struct Book*) malloc (10*sizeof(struct Book));//10sturcture allocation  
@@ -24,7 +24,7 @@ int main(int argc, char *argv[]) {
 	printf("book(1,3): %i,%s\n",(bookshelf[1]+3)->number, (bookshelf[1]+3)-> title);
 	printf("book(2,4): %i,%s\n",bookshelf[2][4].number, bookshelf[2][4]. title);
 	
-	for(i=0;i<3;i++)
+	for(i=0;i<3;i++) 
 		free(bookshelf[i]);
 		free(bookshelf);
 		system("PAUSE");
