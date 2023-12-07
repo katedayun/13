@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h> 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
 struct Book{
@@ -10,7 +11,7 @@ struct Book{
 int main(void) { 
 	struct Book **bookshelf;
 	int i;
-	bookshelf= (struct Book**)malloc(sizeof(struct Book*));
+	bookshelf= (struct Book**)malloc(sizeof(struct Book*)); 
 	//initial bookshelf (3 boxes for Book*)
 	for(i=0;i<3;i++){
 		bookshelf[i]=(struct Book*) malloc (10*sizeof(struct Book));//10sturcture allocation  
