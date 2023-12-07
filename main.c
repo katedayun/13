@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
 struct Book{
@@ -9,14 +8,28 @@ struct Book{
 	
 };
 int main(int argc, char *argv[]) {
-	struct Book*p;
+	struct Book **bookshelf;
+	int i;
+	bookshelf= (struct Book**)malloc(3*sizeof(struct Book*));
+	//initial bookshelf (3 boxes for Book*)
+	for(i=0;i<3;i++){
+		bookshelf[i]=(struct Book*) malloc (10*sizeof(struct Book));//10sturcture allocation  
+		//two steps allocation neccessary : first for the Book*(1,2,3) --> Each Book(10°³)  
+		//free must be the same procedur
+	bookshelf[1][3].number=5;
+	strcpy(bookshelf[1][3].title,"C++");
+	(bookshelf[2]+4)-> number=3;
+	strcpy((bookshelf[2]+4)->title, "communication");
 	
-	p=malloc(2*sizeof(struct Book));
-		//allocation with 4 multiplied integer --> 14(4+10)
-	p->number=1;
-	strcpy(p->title,"C Programming");
-	(p+1)->number=2;
-	strcpy((p+1)->title,"Electronics");
-	free(p);
-	//p unit [ 1| number=1| title =****](_16)[2|number=2|title =***](32)
-	return 0;}
+	printf("book(1,3): %i,%s\n",(bookshelf[1]+3)->number, (bookshelf[1]+3)-> title);
+	printf("book(2,4): %i,%s\n",bookshelf[2][4].number, bookshelf[2][4]. title);
+	
+	for(i=0;i<3;i++)
+		free(bookshelf[i]);
+		free(bookshelf);
+		system("PAUSE");
+		return 0;
+		
+	}	
+	}
+	
