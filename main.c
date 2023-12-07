@@ -3,22 +3,20 @@
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
+struct Book{
+	int number;
+	char title[10];
+	
+};
 int main(int argc, char *argv[]) {
-	char *pc=NULL;
-	int i=0;
+	struct Book*p;
 	
-	pc=(char*)malloc(100*sizeof(char));
-	if(pc==NULL){
-		printf("wrong memory allocation \n");
-		exit(1);
-	}
-	
-	for(i=0;i<26;i++){
-		pc[i]='a'+i;
-	}
-	pc[i]=0;
-	printf("%s\n",pc);
-	free(pc);
-	
-	return 0;
-}
+	p=malloc(2*sizeof(struct Book));
+		//allocation with 4 multiplied integer --> 14(4+10)
+	p->number=1;
+	strcpy(p->title,"C Programming");
+	(p+1)->number=2;
+	strcpy((p+1)->title,"Electronics");
+	free(p);
+	//p unit [ 1| number=1| title =****](_16)[2|number=2|title =***](32)
+	return 0;}
